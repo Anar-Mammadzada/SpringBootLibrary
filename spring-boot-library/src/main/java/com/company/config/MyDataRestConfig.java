@@ -10,7 +10,7 @@ import org.springframework.web.servlet.config.annotation.CorsRegistry;
 @Configuration
 public class MyDataRestConfig implements RepositoryRestConfigurer {
 
-    private String theAllowedOrigins = "http://localhost:3000";
+    private final String theAllowedOrigins = "http://localhost:3000";
 
     @Override
     public void configureRepositoryRestConfiguration(RepositoryRestConfiguration config, CorsRegistry cors) {
@@ -23,7 +23,7 @@ public class MyDataRestConfig implements RepositoryRestConfigurer {
         cors.addMapping(config.getBasePath() + "/**").allowedOrigins(theAllowedOrigins);
     }
 
-    private void disableHttpMethods(Class  bookClass, RepositoryRestConfiguration config,
+    private void disableHttpMethods(Class<Book> bookClass, RepositoryRestConfiguration config,
                                     HttpMethod[] theUnsupportedActions){
         config.getExposureConfiguration().forDomainType(bookClass)
                 .withItemExposure(((metdata, httpMethods) -> httpMethods.disable(theUnsupportedActions)))
