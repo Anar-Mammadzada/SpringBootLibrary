@@ -15,7 +15,7 @@ public class SecurityConfiguration {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception{
 
         http.csrf(csrf -> csrf.disable())
-                .authorizeHttpRequests(auth -> auth.requestMatchers("/api/books/secure/**")
+                .authorizeHttpRequests(auth -> auth.requestMatchers("/api/books/secure/**","/api/reviews/secure/**")
                         .authenticated().anyRequest().permitAll()).oauth2ResourceServer(oauth2 -> oauth2.jwt());
 
         http.cors();
