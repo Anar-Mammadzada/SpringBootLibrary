@@ -18,7 +18,7 @@ public class SecurityConfiguration {
 
         http.csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(auth -> auth.requestMatchers("/api/books/secure/**",
-                                "/api/reviews/secure/**", "/api/messages/secure/**")
+                                "/api/reviews/secure/**", "/api/messages/secure/**", "/api/admin/secure/**")
                         .authenticated().anyRequest().permitAll()).oauth2ResourceServer(OAuth2ResourceServerConfigurer::jwt);
 
         http.cors();
