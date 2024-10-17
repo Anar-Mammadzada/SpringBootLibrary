@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/admin")
-@CrossOrigin("http://localhost:3000")
+@CrossOrigin("https://localhost:3000")
 public class AdminController {
 
     private AdminService adminService;
